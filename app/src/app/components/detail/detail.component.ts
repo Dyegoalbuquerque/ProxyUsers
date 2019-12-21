@@ -29,20 +29,23 @@ export class DetailComponent  implements OnInit {
   }
 
   ngOnInit() {
+
+    this.dataSource = new MatTableDataSource<Repository>([]);
     this.GetUser(this.login);
     this.GetRepositories(this.login);
-    this.dataSource = new MatTableDataSource<Repository>([]);
   }
 
   GetUser(login : string){          
     this.userService.GetDetail(login).subscribe(data=>{
       this.user = data;
-     });    
+     });  
+  
   } 
 
   GetRepositories(login : string){          
     this.repositoryService.GetByLogin(login).subscribe(data=>{     
       this.dataSource = new MatTableDataSource<Repository>(data);
      });    
+
   } 
 }

@@ -13,20 +13,21 @@ export class ListComponent  implements OnInit {
 
   constructor(private userService: UserService) { }
   
-  displayedColumns: string[] = ['id', 'login'];
-  dataSource : MatTableDataSource<User>;
+  displayedColumns: string[] = ['id', 'login', 'details'];
+  dataSourceUser : MatTableDataSource<User>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
+    this.dataSourceUser = new MatTableDataSource<User>([]);
     this.GetUsers();
-    this.dataSource = new MatTableDataSource<User>([]);
   }
 
   GetUsers(){          
     this.userService.GetUsersPagination(1).subscribe(data=>{
-      this.dataSource = new MatTableDataSource<User>(data.data);
-      this.dataSource.paginator = this.paginator;
-     });    
+      this.dataSourceUser = new MatTableDataSource<User>(data.data);
+      this.dataSourceUser.paginator = this.paginator;
+     });  
+     
   } 
 }

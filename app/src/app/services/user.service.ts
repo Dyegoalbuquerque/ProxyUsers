@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  ApiUrl='http://localhost:5000/api/users';    
+  ApiUrl='https://stormy-hollows-04970.herokuapp.com/api/users';    
   constructor(private httpclient: HttpClient) { }    
     
   GetUsersPagination(number : number):Observable<Pagination>{    
