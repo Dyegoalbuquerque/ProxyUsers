@@ -24,7 +24,7 @@ export class DetailComponent  implements OnInit {
 
   constructor(private route: ActivatedRoute, private userService: UserService,
               private repositoryService: RepositoryService) { 
-    this.route.params.subscribe(res => this.login = res.login);
+    this.route.params.subscribe(res => {this.login = res.login; console.log(this.login)});
     this.user = new User();
   }
 
@@ -36,15 +36,15 @@ export class DetailComponent  implements OnInit {
   }
 
   GetUser(login : string){          
-    this.userService.GetDetail(login).subscribe(data=>{
-      this.user = data;
+    this.userService.GetDetail(login).subscribe(data=>{console.log(data);
+      this.user = data.data;
      });  
   
   } 
 
   GetRepositories(login : string){          
     this.repositoryService.GetByLogin(login).subscribe(data=>{     
-      this.dataSource = new MatTableDataSource<Repository>(data);
+      this.dataSource = new MatTableDataSource<Repository>(data.data);
      });    
 
   } 

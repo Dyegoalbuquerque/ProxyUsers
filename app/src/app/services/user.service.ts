@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
 import { Pagination } from '../pagination';
 import { Observable } from 'rxjs';
+import { Details } from '../details';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UserService {
     return this.httpclient.get<Pagination>(this.ApiUrl + '?since=' + number);    
   }    
     
-  GetDetail(login:string):Observable<User>{    
-    return this.httpclient.get<User>(this.ApiUrl + '/' + login);    
+  GetDetail(login:string):Observable<Details>{    
+    return this.httpclient.get<Details>(this.ApiUrl + '/' + login + '/details');    
   }
 }

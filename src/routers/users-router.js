@@ -13,7 +13,7 @@ const swaggerOption = {
             contact: {
                 name: 'sp developer'
             },
-            servers:['http://localhost:5000']
+            servers:['https://stormy-hollows-04970.herokuapp.com']
         }
     },
     apis: ['users-router.js']
