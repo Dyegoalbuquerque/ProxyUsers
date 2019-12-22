@@ -1,7 +1,7 @@
 <h3>Users Github</h3>
 
-
-  <table mat-table [dataSource]="dataSourceUser" class="mat-elevation-z8 table">
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceUser" >
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
@@ -22,8 +22,9 @@
        </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
   <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+</div>

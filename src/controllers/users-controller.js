@@ -8,6 +8,7 @@ class UserController {
   
    async get(url) {
        let result =  await this.request.get(url);
+       
        let headers = result.headers;
        let link = headers.link == null || headers.link == undefined || 
                   headers.link == '' ? '' : headers.link.split(',')[0];
