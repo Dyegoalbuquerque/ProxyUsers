@@ -1,4 +1,4 @@
-# Shawandpartners
+# ProxyUsers
 Web api proxy for to consume the GitHub APIs.
 
 # Webapi
